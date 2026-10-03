@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Project Details — Caesar Cipher Cryptography Toolkit</title>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="assets/img/favicon_io/site.webmanifest">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Vendor CSS -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    /* ── PAGE-SPECIFIC STYLES ── */
+    .page-hero {
+      padding: 6rem 0 3rem;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+      background:
+        radial-gradient(ellipse 70% 60% at 50% 0%, rgba(0,255,65,0.06) 0%, transparent 70%),
+        var(--bg);
+    }
+
+    .page-hero .breadcrumb-trail {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .breadcrumb-trail a { color: var(--green); transition: opacity 0.2s; }
+    .breadcrumb-trail a:hover { opacity: 0.7; }
+    .breadcrumb-trail .sep { color: var(--text-muted); }
+
+    .page-hero h1 {
+      font-family: var(--font-hud);
+      font-size: clamp(1.3rem, 3.5vw, 2.2rem);
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .page-hero h1 span { color: var(--green); }
+
+    .proj-detail-section { padding: 4rem 0 5rem; }
+
+    /* Swiper */
+    .detail-slider {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--bg-card);
+      margin-bottom: 2.5rem;
+    }
+
+    .detail-slider .swiper-slide img {
+      width: 100%;
+      height: auto;
+      max-height: 520px;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      background: #0a0a0a;
+    }
+
+    .detail-slider .swiper-button-next,
+    .detail-slider .swiper-button-prev {
+      color: var(--green);
+    }
+
+    .detail-slider .swiper-pagination-bullet-active {
+      background: var(--green);
+    }
+
+    /* Description Panel */
+    .desc-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+
+    .desc-panel .panel-hdr {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0.55rem 1rem;
+      background: rgba(0,255,65,0.03);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .desc-panel .term-title {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      margin-left: 0.4rem;
+    }
+
+    .desc-body {
+      padding: 1.5rem;
+    }
+
+    .desc-body h2 {
+      font-family: var(--font-hud);
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.75rem;
+      margin-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .desc-body h2:first-child { margin-top: 0; }
+
+    .desc-body h2::before {
+      content: '//';
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+
+    .desc-body p {
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      color: var(--text-dim);
+      line-height: 1.8;
+      margin-bottom: 0;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .feature-list li {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      padding: 0.4rem 0 0.4rem 1.4rem;
+      position: relative;
+      border-bottom: 1px solid var(--border-dim);
+      line-height: 1.7;
+    }
+
+    .feature-list li:last-child { border-bottom: none; }
+
+    .feature-list li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-size: 0.75rem;
+    }
+
+    /* Code snippet block */
+    .code-block {
+      background: rgba(0,0,0,0.5);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--green);
+      border-radius: 0 4px 4px 0;
+      padding: 1rem 1.2rem;
+      margin: 1rem 0;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--green);
+      line-height: 1.9;
+      overflow-x: auto;
+    }
+
+    .code-block .comment { color: var(--text-muted); }
+    .code-block .keyword { color: var(--cyan); }
+    .code-block .string  { color: #ffa657; }
+
+    /* Tag pills */
+    .tag-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .tag-pill {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 1px;
+      color: var(--green);
+      background: rgba(0,255,65,0.06);
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.75rem;
+      border-radius: 2px;
+    }
+
+    .tag-pill.cyan { color: var(--cyan); background: rgba(0,245,255,0.06); border-color: rgba(0,245,255,0.2); }
+
+    /* Info sidebar */
+    .info-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      position: sticky;
+      top: 80px;
+    }
+
+    .info-panel .panel-hdr {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0.55rem 1rem;
+      background: rgba(0,255,65,0.03);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .info-rows { padding: 0; }
+
+    .info-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      padding: 0.85rem 1.1rem;
+      border-bottom: 1px solid var(--border-dim);
+    }
+
+    .info-row:last-child { border-bottom: none; }
+
+    .info-key {
+      font-family: var(--font-mono);
+      font-size: 0.55rem;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .info-val {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text);
+    }
+
+    .info-val a {
+      color: var(--cyan);
+      word-break: break-all;
+      transition: color 0.2s;
+    }
+
+    .info-val a:hover { color: var(--green); }
+
+    .info-val .badge-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--green);
+    }
+
+    .info-val .badge-status::before {
+      content: '';
+      display: inline-block;
+      width: 7px; height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 6px var(--green);
+      animation: blink-dot 1.5s infinite;
+    }
+
+    .back-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0.8rem 1.1rem;
+      border-top: 1px solid var(--border);
+      color: var(--green);
+      transition: all 0.3s;
+      background: rgba(0,255,65,0.03);
+    }
+
+    .back-btn:hover {
+      background: rgba(0,255,65,0.08);
+      color: var(--green);
+    }
+
+    /* Cipher demo visual */
+    .cipher-demo {
+      background: rgba(0,0,0,0.4);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .cipher-demo .demo-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+    }
+
+    .cipher-demo .demo-label {
+      color: var(--text-muted);
+      min-width: 80px;
+      letter-spacing: 1px;
+    }
+
+    .cipher-demo .demo-val {
+      color: var(--green);
+      letter-spacing: 2px;
+    }
+
+    .cipher-demo .demo-val.encrypted { color: var(--cyan); }
+    .cipher-demo .arrow { color: var(--text-muted); font-size: 0.8rem; }
+  </style>
+</head>
+
+<body class="index-page">
+
+  <!-- Matrix Rain -->
+  <canvas id="matrix-canvas"></canvas>
+  <div class="cyber-grid"></div>
+  <div class="scanlines"></div>
+
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo">SENTINEL<span>::</span>SYS</div>
+      <div class="preloader-msg" id="boot-msg">DECRYPTING PROJECT DATA...</div>
+      <div class="preloader-bar-wrap"><div class="preloader-bar"></div></div>
+      <div class="preloader-sub">CYBERSECURITY COMMAND CENTER v2.5</div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header id="header" class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">[SENTINEL<span class="logo-sep">::</span>SYS]</a>
+      <div class="nav-hud">
+        <span class="hud-item"><span class="hud-dot"></span>ONLINE</span>
+        <span class="hud-item" id="nav-clock">00:00:00</span>
+        <span class="hud-item hud-status">SYS_OK</span>
+      </div>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html"><span class="nav-num">01.</span>Home</a></li>
+          <li><a href="index.html#portfolio" class="active"><span class="nav-num">04.</span>Projects</a></li>
+          <li><a href="index.html#contact" class="nav-cta">Ping Me</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-nav-toggle" id="mobileBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div id="mobile-nav-overlay">
+    <button class="mob-close" id="mobClose">&#10005;</button>
+    <nav>
+      <a href="index.html" class="mob-link"><span>01.</span> Home</a>
+      <a href="index.html#portfolio" class="mob-link"><span>04.</span> Projects</a>
+      <a href="index.html#contact" class="mob-link mob-cta">&#9658; Ping Me</a>
+    </nav>
+  </div>
+
+  <main class="main">
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <div class="container">
+        <div class="breadcrumb-trail">
+          <a href="index.html">HOME</a>
+          <span class="sep">/</span>
+          <a href="index.html#portfolio">PROJECTS</a>
+          <span class="sep">/</span>
+          <span>CAESAR CIPHER TOOLKIT</span>
+        </div>
+        <h1>Caesar Cipher <span>Cryptography</span> Toolkit</h1>
+      </div>
+    </div>
+
+    <!-- DETAIL SECTION -->
+    <section class="proj-detail-section">
+      <div class="container">
+
+        <!-- Swiper Slider -->
+        <div class="detail-slider swiper init-swiper" data-aos="fade-up">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 600,
+              "autoplay": { "delay": 5000 },
+              "slidesPerView": "auto",
+              "navigation": { "nextEl": ".swiper-button-next", "prevEl": ".swiper-button-prev" },
+              "pagination": { "el": ".swiper-pagination", "type": "bullets", "clickable": true }
+            }
+          </script>
+          <div class="swiper-wrapper align-items-center">
+            <div class="swiper-slide"><img src="assets/img/portfolio/caesar-gui.png" alt="Mega Cipher Suite — Tkinter GUI"></div>
+            <div class="swiper-slide"><img src="assets/img/portfolio/caesar-code.png" alt="Mega Cipher Suite — Terminal Launcher"></div>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="row gy-4">
+
+          <!-- Left: Description -->
+          <div class="col-lg-8" data-aos="fade-up">
+
+            <!-- Overview -->
+            <div class="desc-panel">
+              <div class="panel-hdr">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="term-title">project_overview.md</span>
+              </div>
+              <div class="desc-body">
+                <h2>Project Overview</h2>
+                <p>
+                  A comprehensive <strong style="color:#fff">multi-cipher cryptography toolkit</strong> developed in Python,
+                  supporting classical and modern encryption algorithms. The toolkit provides both a
+                  <strong style="color:#fff">Tkinter GUI desktop application</strong> and a
+                  <strong style="color:#fff">Flask-based web interface</strong>, making it accessible for
+                  both offline and browser-based use. AES-256 encryption is integrated for
+                  high-security text and file encryption needs.
+                </p>
+
+                <h2>Supported Ciphers</h2>
+                <ul class="feature-list">
+                  <li><strong style="color:#fff">Caesar Cipher</strong> — Shift-based substitution cipher with configurable key</li>
+                  <li><strong style="color:#fff">Vigenère Cipher</strong> — Polyalphabetic cipher using a keyword for encryption</li>
+                  <li><strong style="color:#fff">Base64 Encoding</strong> — Standard encoding/decoding for text and binary data</li>
+                  <li><strong style="color:#fff">ROT13</strong> — Special case Caesar cipher with 13-position rotation</li>
+                  <li><strong style="color:#fff">Atbash Cipher</strong> — Reverse-alphabet substitution cipher</li>
+                  <li><strong style="color:#fff">AES-256</strong> — Military-grade symmetric encryption for text and files</li>
+                </ul>
+
+                <h2>Cipher Demo</h2>
+                <div class="cipher-demo">
+                  <div class="demo-row">
+                    <span class="demo-label">PLAINTEXT</span>
+                    <span class="arrow">→</span>
+                    <span class="demo-val">SENTINEL</span>
+                  </div>
+                  <div class="demo-row">
+                    <span class="demo-label">CAESAR+3</span>
+                    <span class="arrow">→</span>
+                    <span class="demo-val encrypted">VHQWLQHO</span>
+                  </div>
+                  <div class="demo-row">
+                    <span class="demo-label">ROT13</span>
+                    <span class="arrow">→</span>
+                    <span class="demo-val encrypted">FRAGRAVY</span>
+                  </div>
+                  <div class="demo-row">
+                    <span class="demo-label">ATBASH</span>
+                    <span class="arrow">→</span>
+                    <span class="demo-val encrypted">HRMGRMVO</span>
+                  </div>
+                </div>
+
+                <h2>What I Built</h2>
+                <ul class="feature-list">
+                  <li>Dual-interface architecture — Tkinter GUI for desktop use and Flask web app for browser access</li>
+                  <li>AES-256 encryption module for both plaintext strings and binary file encryption</li>
+                  <li>Encode and decode operations for all supported ciphers in a unified interface</li>
+                  <li>File encryption/decryption with key management for secure data handling</li>
+                  <li>Clean modular Python codebase — each cipher implemented as a standalone module</li>
+                </ul>
+
+                <h2>Code Snippet</h2>
+                <div class="code-block">
+<span class="comment"># Caesar Cipher — encrypt function</span>
+<span class="keyword">def</span> caesar_encrypt(text, shift):
+    result = <span class="string">""</span>
+    <span class="keyword">for</span> char <span class="keyword">in</span> text:
+        <span class="keyword">if</span> char.isalpha():
+            base = <span class="keyword">ord</span>(<span class="string">'A'</span>) <span class="keyword">if</span> char.isupper() <span class="keyword">else</span> <span class="keyword">ord</span>(<span class="string">'a'</span>)
+            result += <span class="keyword">chr</span>(((<span class="keyword">ord</span>(char) - base + shift) % 26) + base)
+        <span class="keyword">else</span>:
+            result += char
+    <span class="keyword">return</span> result
+                </div>
+
+                <h2>Tools &amp; Technologies</h2>
+                <div class="tag-group">
+                  <span class="tag-pill">Python 3</span>
+                  <span class="tag-pill">AES-256</span>
+                  <span class="tag-pill">PyCryptodome</span>
+                  <span class="tag-pill cyan">Flask</span>
+                  <span class="tag-pill cyan">Tkinter</span>
+                  <span class="tag-pill">Cryptography</span>
+                  <span class="tag-pill">Base64</span>
+                  <span class="tag-pill">HTML/CSS</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right: Info Sidebar -->
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="info-panel">
+              <div class="panel-hdr">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="term-title">project.info</span>
+              </div>
+              <div class="info-rows">
+                <div class="info-row">
+                  <span class="info-key">Category</span>
+                  <span class="info-val">Development / Cryptography</span>
+                </div>
+                <div class="info-row">
+                  <span class="info-key">Date</span>
+                  <span class="info-val">December 2025</span>
+                </div>
+                <div class="info-row">
+                  <span class="info-key">Language</span>
+                  <span class="info-val">Python 3</span>
+                </div>
+                <div class="info-row">
+                  <span class="info-key">Interfaces</span>
+                  <span class="info-val">Tkinter GUI &amp; Flask Web App</span>
+                </div>
+                <div class="info-row">
+                  <span class="info-key">Encryption</span>
+                  <span class="info-val">AES-256 + Classical Ciphers</span>
+                </div>
+                <div class="info-row">
+                  <span class="info-key">Status</span>
+                  <span class="info-val"><span class="badge-status">Completed</span></span>
+                </div>
+                <div class="info-row">
+                  <span class="info-key">GitHub</span>
+                  <span class="info-val">
+                    <a href="https://github.com/y4shsec/caesar-cipher-tool" target="_blank" rel="noopener">
+                      <i class="fa-brands fa-github"></i> y4shsec/caesar-cipher-tool
+                    </a>
+                  </span>
+                </div>
+              </div>
+              <a href="https://github.com/y4shsec/caesar-cipher-tool" target="_blank" rel="noopener" class="btn-cyber" style="margin:1rem;display:flex;justify-content:center;">
+                <i class="fa-brands fa-github"></i>&nbsp; View on GitHub
+              </a>
+              <a href="index.html#portfolio" class="back-btn">
+                <i class="bi bi-arrow-left"></i> Back to Projects
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer" class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">[SENTINEL::SYS]</div>
+      <p class="footer-copy">&copy; 2025 <strong>Yashdeep Sankhla</strong> &mdash; All Rights Reserved</p>
+      <div class="footer-links">
+        <a href="https://github.com/y4shsec" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/yashdeep-sankhla-1a175b2bb/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>

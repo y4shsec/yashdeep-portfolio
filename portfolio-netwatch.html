@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Project Details — NetWatch SOC v2 | Yashdeep Sankhla</title>
+  <meta name="description" content="NetWatch SOC v2 — Real-Time AI-Powered Network Security Monitoring Platform built by Yashdeep Sankhla. CLI, Web SIEM, Desktop GUI with ML anomaly detection.">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon_io/favicon-16x16.png">
+  <link rel="manifest" href="assets/img/favicon_io/site.webmanifest">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Vendor CSS -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <style>
+    /* ═══════════════════════════════════════════════
+       NETWATCH SOC v2 — PAGE-SPECIFIC STYLES
+    ═══════════════════════════════════════════════ */
+
+    /* PAGE HERO */
+    .page-hero {
+      padding: 6.5rem 0 3.5rem;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+      background:
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0,245,255,0.04) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 30% at 10% 50%, rgba(0,255,65,0.03) 0%, transparent 70%),
+        var(--bg);
+    }
+
+    .breadcrumb-trail {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .breadcrumb-trail a { color: var(--green); transition: opacity 0.2s; }
+    .breadcrumb-trail a:hover { opacity: 0.7; }
+    .breadcrumb-trail .sep { color: var(--text-muted); }
+
+    .page-hero h1 {
+      font-family: var(--font-hud);
+      font-size: clamp(1.4rem, 3.8vw, 2.5rem);
+      font-weight: 900;
+      color: #fff;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      margin: 0 0 0.6rem;
+      line-height: 1.15;
+    }
+    .page-hero h1 .accent { color: var(--cyan); }
+    .page-hero h1 .accent-g { color: var(--green); }
+
+    .hero-tagline {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--cyan);
+      letter-spacing: 2px;
+      opacity: 0.85;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-stat-row {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .h-stat {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+    .h-stat-val {
+      font-family: var(--font-hud);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--green);
+    }
+    .h-stat-key {
+      font-family: var(--font-mono);
+      font-size: 0.5rem;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* SECTION */
+    .proj-detail-section { padding: 4rem 0 5rem; }
+
+    /* GIF SWIPER */
+    .detail-slider {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--bg-card);
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+    .detail-slider::before {
+      content: "// LIVE CAPTURE";
+      position: absolute;
+      top: 0.6rem;
+      left: 0.8rem;
+      font-family: var(--font-mono);
+      font-size: 0.48rem;
+      letter-spacing: 2px;
+      color: var(--green);
+      background: rgba(2,4,8,0.9);
+      padding: 0.2rem 0.5rem;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      z-index: 10;
+    }
+    .detail-slider .swiper-slide img {
+      width: 100%;
+      height: auto;
+      max-height: 500px;
+      object-fit: contain;
+      object-position: center top;
+      display: block;
+      background: #050d0a;
+    }
+    .detail-slider .swiper-button-next,
+    .detail-slider .swiper-button-prev { color: var(--green); }
+    .detail-slider .swiper-pagination-bullet-active { background: var(--green); }
+    .swiper-slide-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(2,4,8,0.95));
+      padding: 2rem 1rem 0.8rem;
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      color: var(--text-dim);
+      letter-spacing: 1.5px;
+      text-align: center;
+      z-index: 5;
+    }
+
+    /* PANELS */
+    .desc-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+    }
+    .desc-panel .panel-hdr {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0.55rem 1rem;
+      background: rgba(0,255,65,0.03);
+      border-bottom: 1px solid var(--border);
+    }
+    .desc-panel .term-title {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      margin-left: 0.4rem;
+    }
+    .desc-body { padding: 1.5rem; }
+
+    .desc-body h2 {
+      font-family: var(--font-hud);
+      font-size: 0.72rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.75rem;
+      margin-top: 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .desc-body h2:first-child { margin-top: 0; }
+    .desc-body h2::before {
+      content: '//';
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+    .desc-body h2.cyan-head { color: var(--cyan); }
+    .desc-body h2.cyan-head::before { color: rgba(0,245,255,0.3); }
+
+    .desc-body p {
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      color: var(--text-dim);
+      line-height: 1.85;
+      margin-bottom: 0;
+    }
+
+    /* Feature list */
+    .feature-list { list-style: none; padding: 0; margin: 0; }
+    .feature-list li {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      padding: 0.5rem 0 0.5rem 1.4rem;
+      position: relative;
+      border-bottom: 1px solid var(--border-dim);
+      line-height: 1.7;
+    }
+    .feature-list li:last-child { border-bottom: none; }
+    .feature-list li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-size: 0.75rem;
+    }
+    .feature-list li strong { color: #fff; }
+    .feature-list li .sub-note {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--text-muted);
+      display: block;
+      margin-top: 0.2rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* Code block */
+    .code-block {
+      background: rgba(0,0,0,0.55);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--green);
+      border-radius: 0 4px 4px 0;
+      padding: 1.1rem 1.3rem;
+      margin: 1rem 0 0;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--green);
+      line-height: 2;
+      overflow-x: auto;
+    }
+    .code-block.cyan { border-left-color: var(--cyan); color: var(--cyan); }
+    .code-block .cmt  { color: var(--text-muted); }
+    .code-block .kw   { color: var(--cyan); }
+    .code-block .str  { color: #ffa657; }
+    .code-block .fn   { color: #d2a8ff; }
+    .code-block .num  { color: #79c0ff; }
+
+    /* Tag pills */
+    .tag-group { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+    .tag-pill {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 1px;
+      color: var(--green);
+      background: rgba(0,255,65,0.06);
+      border: 1px solid var(--border);
+      padding: 0.25rem 0.75rem;
+      border-radius: 2px;
+    }
+    .tag-pill.cyan { color: var(--cyan); background: rgba(0,245,255,0.06); border-color: rgba(0,245,255,0.2); }
+    .tag-pill.purple { color: var(--purple); background: rgba(191,0,255,0.06); border-color: rgba(191,0,255,0.2); }
+
+    /* Architecture diagram */
+    .arch-diagram {
+      background: rgba(0,0,0,0.45);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.5rem 1.2rem;
+      margin-top: 1rem;
+      overflow-x: auto;
+    }
+    .arch-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 0.4rem;
+      flex-wrap: nowrap;
+    }
+    .arch-box {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 1px;
+      padding: 0.45rem 0.7rem;
+      border-radius: 2px;
+      text-align: center;
+      white-space: nowrap;
+      line-height: 1.5;
+    }
+    .arch-box.green  { color: var(--green);  border: 1px solid rgba(0,255,65,0.35);  background: rgba(0,255,65,0.05); }
+    .arch-box.cyan   { color: var(--cyan);   border: 1px solid rgba(0,245,255,0.35); background: rgba(0,245,255,0.05); }
+    .arch-box.purple { color: var(--purple); border: 1px solid rgba(191,0,255,0.35); background: rgba(191,0,255,0.05); }
+    .arch-box.dim    { color: var(--text-muted); border: 1px solid var(--border-dim); background: rgba(0,0,0,0.3); }
+    .arch-arrow {
+      font-family: var(--font-mono);
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      padding: 0 0.4rem;
+      flex-shrink: 0;
+    }
+    .arch-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border-dim);
+      margin: 0.8rem 0;
+    }
+    .arch-label {
+      font-family: var(--font-mono);
+      font-size: 0.5rem;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      text-align: center;
+      margin-bottom: 0.6rem;
+    }
+
+    /* ML pipeline visual */
+    .ml-pipeline {
+      background: rgba(0,0,0,0.4);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.4rem 1.2rem;
+      margin-top: 1rem;
+    }
+    .ml-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.1rem;
+    }
+    .ml-step:last-child { margin-bottom: 0; }
+    .ml-num {
+      font-family: var(--font-hud);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: rgba(0,255,65,0.2);
+      min-width: 28px;
+      line-height: 1;
+      padding-top: 0.15rem;
+    }
+    .ml-content {}
+    .ml-title {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--green);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 0.2rem;
+    }
+    .ml-desc {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      line-height: 1.7;
+    }
+    .ml-sep {
+      width: 1px;
+      height: 16px;
+      background: var(--border);
+      margin: 0 0 1.1rem 13px;
+    }
+
+    /* Threat detection demo */
+    .threat-demo {
+      background: rgba(0,0,0,0.5);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 1rem;
+    }
+    .threat-demo-hdr {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0.5rem 0.9rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(0,255,65,0.02);
+    }
+    .threat-demo-title {
+      font-family: var(--font-mono);
+      font-size: 0.52rem;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      margin-left: 0.3rem;
+    }
+    .threat-log {
+      padding: 0.8rem 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      line-height: 2.1;
+    }
+    .tl-row { display: flex; gap: 0.8rem; align-items: baseline; }
+    .tl-time { color: var(--text-muted); flex-shrink: 0; }
+    .tl-level { min-width: 50px; flex-shrink: 0; }
+    .tl-level.warn   { color: #ffd700; }
+    .tl-level.alert  { color: var(--red); }
+    .tl-level.info   { color: var(--cyan); }
+    .tl-level.detect { color: var(--green); }
+    .tl-msg { color: var(--text-dim); }
+    .tl-msg .hl-g { color: var(--green); }
+    .tl-msg .hl-c { color: var(--cyan); }
+    .tl-msg .hl-r { color: var(--red); }
+    .tl-cursor::after {
+      content: '█';
+      color: var(--green);
+      animation: blink-dot 1s infinite;
+    }
+
+    /* Interface mode cards */
+    .mode-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    @media (max-width: 768px) { .mode-grid { grid-template-columns: 1fr; } }
+    .mode-card {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1rem;
+      transition: var(--t);
+    }
+    .mode-card:hover {
+      border-color: rgba(0,255,65,0.35);
+      background: rgba(0,255,65,0.02);
+    }
+    .mode-icon {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+    .mode-title {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: var(--green);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+    .mode-title.c { color: var(--cyan); }
+    .mode-desc {
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      line-height: 1.65;
+    }
+
+    /* Info Sidebar */
+    .info-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      position: sticky;
+      top: 80px;
+    }
+    .info-panel .panel-hdr {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 0.55rem 1rem;
+      background: rgba(0,255,65,0.03);
+      border-bottom: 1px solid var(--border);
+    }
+    .info-rows { padding: 0; }
+    .info-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      padding: 0.85rem 1.1rem;
+      border-bottom: 1px solid var(--border-dim);
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-key {
+      font-family: var(--font-mono);
+      font-size: 0.52rem;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .info-val {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .info-val a { color: var(--cyan); word-break: break-all; transition: color 0.2s; }
+    .info-val a:hover { color: var(--green); }
+    .info-val .badge-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--green);
+    }
+    .info-val .badge-status::before {
+      content: '';
+      display: inline-block;
+      width: 7px; height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 6px var(--green);
+      animation: blink-dot 1.5s infinite;
+    }
+
+    .back-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0.85rem 1.1rem;
+      border-top: 1px solid var(--border);
+      color: var(--green);
+      transition: all 0.3s;
+      background: rgba(0,255,65,0.02);
+    }
+    .back-btn:hover { background: rgba(0,255,65,0.07); color: var(--green); }
+
+    /* Related projects */
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    @media (max-width: 576px) { .related-grid { grid-template-columns: 1fr; } }
+    .related-card {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.85rem 1rem;
+      transition: var(--t);
+      display: block;
+    }
+    .related-card:hover { border-color: rgba(0,255,65,0.35); background: rgba(0,255,65,0.02); }
+    .related-tag {
+      font-family: var(--font-mono);
+      font-size: 0.48rem;
+      color: var(--text-muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+    .related-title {
+      font-family: var(--font-hud);
+      font-size: 0.62rem;
+      color: var(--green);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    /* Blink animation (shared with main.css) */
+    @keyframes blink-dot { 0%,100%{opacity:1} 50%{opacity:0} }
+  </style>
+</head>
+
+<body class="index-page">
+
+  <!-- Matrix Rain -->
+  <canvas id="matrix-canvas"></canvas>
+  <div class="cyber-grid"></div>
+  <div class="scanlines"></div>
+
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo">SENTINEL<span>::</span>SYS</div>
+      <div class="preloader-msg" id="boot-msg">LOADING NETWATCH SOC v2 DATA...</div>
+      <div class="preloader-bar-wrap"><div class="preloader-bar"></div></div>
+      <div class="preloader-sub">CYBERSECURITY COMMAND CENTER v2.5</div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header id="header" class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">[SENTINEL<span class="logo-sep">::</span>SYS]</a>
+      <div class="nav-hud">
+        <span class="hud-item"><span class="hud-dot"></span>ONLINE</span>
+        <span class="hud-item" id="nav-clock">00:00:00</span>
+        <span class="hud-item hud-status">SYS_OK</span>
+      </div>
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html"><span class="nav-num">01.</span>Home</a></li>
+          <li><a href="index.html#portfolio" class="active"><span class="nav-num">04.</span>Projects</a></li>
+          <li><a href="index.html#contact" class="nav-cta">Ping Me</a></li>
+        </ul>
+      </nav>
+      <button class="mobile-nav-toggle" id="mobileBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Nav -->
+  <div id="mobile-nav-overlay">
+    <button class="mob-close" id="mobClose">&#10005;</button>
+    <nav>
+      <a href="index.html" class="mob-link"><span>01.</span> Home</a>
+      <a href="index.html#portfolio" class="mob-link"><span>04.</span> Projects</a>
+      <a href="index.html#contact" class="mob-link mob-cta">&#9658; Ping Me</a>
+    </nav>
+  </div>
+
+  <main class="main">
+
+    <!-- PAGE HERO -->
+    <div class="page-hero">
+      <div class="container">
+        <div class="breadcrumb-trail" data-aos="fade-down">
+          <a href="index.html">HOME</a>
+          <span class="sep">/</span>
+          <a href="index.html#portfolio">PROJECTS</a>
+          <span class="sep">/</span>
+          <span>NETWATCH SOC v2</span>
+        </div>
+        <h1 data-aos="fade-up">NetWatch <span class="accent">SOC</span> <span class="accent-g">v2</span></h1>
+        <p class="hero-tagline" data-aos="fade-up" data-aos-delay="80">Real-Time AI-Powered Network Security Monitoring Platform</p>
+        <div class="hero-stat-row" data-aos="fade-up" data-aos-delay="160">
+          <div class="h-stat"><span class="h-stat-val">3</span><span class="h-stat-key">Interface Modes</span></div>
+          <div class="h-stat"><span class="h-stat-val">2</span><span class="h-stat-key">ML Models</span></div>
+          <div class="h-stat"><span class="h-stat-val">12+</span><span class="h-stat-key">Tech Stack</span></div>
+          <div class="h-stat"><span class="h-stat-val">100%</span><span class="h-stat-key">Python</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DETAIL SECTION -->
+    <section class="proj-detail-section">
+      <div class="container">
+
+        <!-- GIF Swiper — 3 slides with captions -->
+        <div class="detail-slider swiper init-swiper" data-aos="fade-up">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 700,
+              "autoplay": { "delay": 5000 },
+              "slidesPerView": "auto",
+              "navigation": { "nextEl": ".swiper-button-next", "prevEl": ".swiper-button-prev" },
+              "pagination": { "el": ".swiper-pagination", "type": "bullets", "clickable": true }
+            }
+          </script>
+          <div class="swiper-wrapper align-items-center">
+            <div class="swiper-slide" style="position:relative;">
+              <img src="assets/img/cli_dashboard.gif" alt="NetWatch SOC — CLI Dashboard (Rich terminal)">
+              <div class="swiper-slide-caption">01 / CLI DASHBOARD — Rich terminal real-time feed with threat table, packet rate counter, and alert ticker</div>
+            </div>
+            <div class="swiper-slide" style="position:relative;">
+              <img src="assets/img/web_dashboard.gif" alt="NetWatch SOC — Web SIEM (Flask + SocketIO)">
+              <div class="swiper-slide-caption">02 / WEB SIEM — Flask + SocketIO browser dashboard with live event stream, charts, and alert panel</div>
+            </div>
+            <div class="swiper-slide" style="position:relative;">
+              <img src="assets/img/gui_dashboard.gif" alt="NetWatch SOC — Desktop GUI (Tkinter)">
+              <div class="swiper-slide-caption">03 / DESKTOP GUI — Tkinter multi-tab application with topology map, protocol analyzer, and PCAP export</div>
+            </div>
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+        <div class="row gy-4">
+
+          <!-- ── LEFT: Main Content ── -->
+          <div class="col-lg-8">
+
+            <!-- Overview -->
+            <div class="desc-panel" data-aos="fade-up">
+              <div class="panel-hdr">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="term-title">project_overview.md</span>
+              </div>
+              <div class="desc-body">
+                <h2>Project Overview</h2>
+                <p>
+                  <strong style="color:#fff">NetWatch SOC v2</strong> is a full-spectrum,
+                  from-scratch network security monitoring platform built entirely in Python.
+                  It provides three complete interface modes — a Rich-powered CLI dashboard,
+                  a Flask + SocketIO SIEM web interface, and a Tkinter desktop GUI — all
+                  sharing the same detection engine beneath. The system performs
+                  <strong style="color:#fff">real-time packet capture and analysis</strong>
+                  via Scapy, detects active threats including ARP spoofing, port scans, and
+                  DDoS patterns, and classifies anomalous flows using a trained
+                  <strong style="color:#fff">AI/ML ensemble</strong> (Isolation Forest + Random Forest)
+                  backed by the CIC-IDS2017 dataset. Events are persisted in an
+                  <strong style="color:#fff">SQLite database</strong> via SQLAlchemy with a
+                  rotating log system for long-term incident retention.
+                </p>
+
+                <h2>Why I Built This</h2>
+                <p>
+                  Commercial SIEM platforms are heavyweight, expensive, and often overkill
+                  for small-scale lab or homelab monitoring. NetWatch SOC v2 was designed
+                  as a lightweight, self-contained alternative that a cybersecurity professional
+                  can deploy instantly — on a laptop, a Raspberry Pi, or a cloud VM — with
+                  zero external dependencies beyond a Python environment. It was also a
+                  deliberate exercise in building the full detection pipeline end-to-end:
+                  from raw packets all the way to ML classification and alert storage.
+                </p>
+              </div>
+            </div>
+
+            <!-- Interface Modes -->
+            <div class="desc-panel" data-aos="fade-up">
+              <div class="panel-hdr">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="term-title">interface_modes.md</span>
+              </div>
+              <div class="desc-body">
+                <h2>Three Interface Modes</h2>
+                <div class="mode-grid">
+                  <div class="mode-card">
+                    <div class="mode-icon">&#9632;</div>
+                    <div class="mode-title">CLI Dashboard</div>
+                    <div class="mode-desc">Rich terminal UI with real-time packet feed, threat counter, alert table, and protocol breakdown. Zero browser required — runs fully in the terminal.</div>
+                  </div>
+                  <div class="mode-card">
+                    <div class="mode-icon">&#9670;</div>
+                    <div class="mode-title c">Web SIEM</div>
+                    <div class="mode-desc">Flask + SocketIO browser dashboard with live event streaming, interactive charts (Plotly), alert panel, and network topology graph. Accessible from any device on the LAN.</div>
+                  </div>
+                  <div class="mode-card">
+                    <div class="mode-icon">&#9633;</div>
+                    <div class="mode-title">Desktop GUI</div>
+                    <div class="mode-desc">Tkinter multi-tab application covering the packet sniffer, topology viewer, protocol analyzer, ML inference panel, and PCAP export — fully offline, no server needed.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Architecture -->
+            <div class="desc-panel" data-aos="fade-up">
+              <div class="panel-hdr">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="term-title">architecture.md</span>
+              </div>
+              <div class="desc-body">
+                <h2>System Architecture</h2>
+                <p>The system is layered into four tiers: live capture → detection engine → ML inference → storage &amp; interface.</p>
+                <div class="arch-diagram">
+                  <div class="arch-label">LAYER 1 — PACKET CAPTURE</div>
+                  <div class="arch-row">
+                    <div class="arch-box green">Network Interface<br><span style="opacity:0.5;font-size:0.5rem">eth0 / wlan0</span></div>
+                    <div class="arch-arrow">──▶</div>
+                    <div class="arch-box cyan">Scapy Sniffer<br><span style="opacity:0.5;font-size:0.5rem">Raw packet capture</span></div>
+                    <div class="arch-arrow">──▶</div>
+                    <div class="arch-box green">Packet Queue<br><span style="opacity:0.5;font-size:0.5rem">Thread-safe buffer</span></div>
+                  </div>
+                  <div class="arch-divider"></div>
+                  <div class="arch-label">LAYER 2 — DETECTION ENGINE</div>
+                  <div class="arch-row">
+                    <div class="arch-box cyan">ARP Spoof<br>Detector</div>
+                    <div class="arch-arrow">&nbsp;</div>
+                    <div class="arch-box cyan">Port Scan<br>Detector</div>
+                    <div class="arch-arrow">&nbsp;</div>
+                    <div class="arch-box cyan">DDoS<br>Detector</div>
+                    <div class="arch-arrow">&nbsp;</div>
+                    <div class="arch-box cyan">Protocol<br>Analyzer</div>
+                  </div>
+                  <div class="arch-divider"></div>
+                  <div class="arch-label">LAYER 3 — ML INFERENCE</div>
+                  <div class="arch-row">
+                    <div class="arch-box purple">Feature Extractor<br><span style="opacity:0.5;font-size:0.5rem">Flow-level features</span></div>
+                    <div class="arch-arrow">──▶</div>
+                    <div class="arch-box purple">Isolation Forest<br><span style="opacity:0.5;font-size:0.5rem">Unsupervised anomaly</span></div>
+                    <div class="arch-arrow">+</div>
+                    <div class="arch-box purple">Random Forest<br><span style="opacity:0.5;font-size:0.5rem">Supervised classifier</span></div>
+                  </div>
+                  <div class="arch-divider"></div>
+                  <div class="arch-label">LAYER 4 — STORAGE &amp; OUTPUT</div>
+                  <div class="arch-row">
+                    <div class="arch-box dim">SQLite + SQLAlchemy<br><span style="opacity:0.5;font-size:0.5rem">Event persistence</span></div>
+                    <div class="arch-arrow">+</div>
+                    <div class="arch-box green">CLI / Web / GUI<br><span style="opacity:0.5;font-size:0.5rem">Interface layer</span></div>
+                    <div class="arch-arrow">+</div>
+                    <div class="arch-box dim">PCAP Export<br><span style="opacity:0.5;font-size:0.5rem">Rotating logs</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ML Pipeline -->
+            <div class="desc-panel" data-aos="fade-up">
+              <div class="panel-hdr">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="term-title">ml_pipeline.md</span>
+              </div>
+              <div class="desc-body">
+                <h2 class="cyan-head">AI / ML Detection Pipeline</h2>
+                <p>The ML subsystem uses a two-stage ensemble approach trained on the CIC-IDS2017 benchmark dataset, covering BENIGN, DoS, DDoS, PortScan, Brute Force, and Web Attack traffic categories.</p>
+                <div class="ml-pipeline">
+                  <div class="ml-step">
+                    <div class="ml-num">01</div>
+                    <div class="ml-content">
+                      <div class="ml-title">Data Preprocessing — CIC-IDS2017</div>
+                      <div class="ml-desc">Raw PCAP flows are converted to feature vectors: packet length stats, inter-arrival times, flow duration, byte ratios, flag counts (SYN/FIN/RST), and protocol distribution. StandardScaler normalization applied before inference.</div>
+                    </div>
+                  </div>
+                  <div class="ml-sep"></div>
+                  <div class="ml-step">
+                    <div class="ml-num">02</div>
+                    <div class="ml-content">
+                      <div class="ml-title">Stage 1 — Isolation Forest (Unsupervised)</div>
+                      <div class="ml-desc">Isolation Forest scores each flow for anomaly probability without needing labelled data. Novel attack patterns that don't match known categories are flagged here first — provides zero-day detection capability.</div>
+                    </div>
+                  </div>
+                  <div class="ml-sep"></div>
+                  <div class="ml-step">
+                    <div class="ml-num">03</div>
+                    <div class="ml-content">
+                      <div class="ml-title">Stage 2 — Random Forest Classifier (Supervised)</div>
+                      <div class="ml-desc">Flows flagged by Isolation Forest (or high packet-rate heuristics) are passed to the Random Forest for precise attack category classification: DoS / DDoS / PortScan / BruteForce / WebAttack / BENIGN.</div>
+                    </div>
+                  </div>
+                  <div class="ml-sep"></div>
+                  <div class="ml-step">
+                    <div class="ml-num">04</div>
+                    <div class="ml-content">
+                      <div class="ml-title">Alert Routing &amp; Storage</div>
+                      <div class="ml-desc">Classified threats are written to SQLite via SQLAlchemy with timestamp, source IP, destination IP, protocol, attack type, and confidence score. The rotating log system caps file size while preserving recent history.</div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ML code snippet -->
+                <div class="code-block cyan" style="margin-top:1.2rem;">
+<span class="cmt"># Dual-model inference — anomaly then classification</span>
+<span class="kw">def</span> <span class="fn">analyze_flow</span>(flow_features):
+    score = iso_forest.<span class="fn">decision_function</span>([flow_features])[<span class="num">0</span>]
+    <span class="kw">if</span> score &lt; <span class="num">-0.15</span>:  <span class="cmt"># anomaly threshold</span>
+        label = rf_model.<span class="fn">predict</span>([flow_features])[<span class="num">0</span>]
+        confidence = rf_model.<span class="fn">predict_proba</span>([flow_features]).<span class="fn">max</span>()
+        <span class="kw">return</span> {<span class="str">"threat"</span>: label, <span class="str">"confidence"</span>: confidence, <span class="str">"score"</span>: score}
+    <span class="kw">return</span> {<span class="str">"threat"</span>: <span class="str">"BENIGN"</span>, <span class="str">"confidence"</span>: <span class="num">1.0</span>}
+                </div>
+              </div>
+            </div>
+
+            <!-- Detection capabilities -->
+            <div class="desc-panel" data-aos="fade-up">
+              <div class="panel-hdr">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="term-title">detection_capabilities.md</span>
+              </div>
+              <div class="desc-body">
+                <h2>Rule-Based Detection — Threats Covered</h2>
+                <ul class="feature-list">
+                  <li>
+                    <strong>ARP Spoofing Detection</strong> — Monitors ARP request/reply tables for IP-MAC binding conflicts. Alerts when a MAC address claims an IP already mapped to a different MAC.
+                    <span class="sub-note">Scapy ARP layer parsing · MAC table tracking · spoofed GW detection</span>
+                  </li>
+                  <li>
+                    <strong>Port Scan Detection</strong> — Tracks SYN packets per source IP with configurable thresholds. Identifies horizontal (single IP, multiple ports) and vertical (multiple IPs, same port) sweep patterns.
+                    <span class="sub-note">SYN flood heuristics · Nmap signature patterns · configurable rate threshold</span>
+                  </li>
+                  <li>
+                    <strong>DDoS Alert System</strong> — Monitors inbound packet rate and flow entropy. Fires when traffic from a single source exceeds the baseline rate or when destination diversity collapses (volumetric DDoS indicator).
+                    <span class="sub-note">PPS rate limiting · flow entropy · UDP/ICMP flood patterns</span>
+                  </li>
+                  <li>
+                    <strong>Protocol Analyzer</strong> — Deep-parses packets to extract protocol distribution, DNS queries, HTTP hosts, and TCP flag states for session reconstruction.
+                    <span class="sub-note">TCP/UDP/ICMP/DNS/HTTP layers · flag state machine</span>
+                  </li>
+                  <li>
+                    <strong>Network Topology Mapping</strong> — Builds a live network graph using NetworkX, updating node positions as new hosts are discovered from ARP and IP packets. Plotly renders the interactive graph in the Web SIEM.
+                    <span class="sub-note">NetworkX graph · Nmap host discovery · Plotly force-directed layout</span>
+                  </li>
+                </ul>
+
+                <!-- Simulated threat log -->
+                <h2>Live Alert Feed — Sample Output</h2>
+                <div class="threat-demo">
+                  <div class="threat-demo-hdr">
+                    <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                    <span class="threat-demo-title">netwatch.log — live feed</span>
+                  </div>
+                  <div class="threat-log">
+                    <div class="tl-row"><span class="tl-time">14:23:01</span><span class="tl-level info">[ INFO ]</span><span class="tl-msg">Packet sniffer started on interface <span class="hl-c">eth0</span></span></div>
+                    <div class="tl-row"><span class="tl-time">14:23:04</span><span class="tl-level detect">[ SCAN ]</span><span class="tl-msg">ARP table updated — <span class="hl-g">12 hosts</span> discovered on 192.168.1.0/24</span></div>
+                    <div class="tl-row"><span class="tl-time">14:23:19</span><span class="tl-level warn">[ WARN ]</span><span class="tl-msg">Elevated SYN rate from <span class="hl-r">192.168.1.47</span> — 340 SYN/5s (threshold: 200)</span></div>
+                    <div class="tl-row"><span class="tl-time">14:23:20</span><span class="tl-level alert">[ ALERT ]</span><span class="tl-msg">PORT SCAN detected — src: <span class="hl-r">192.168.1.47</span> · 82 ports in 1.2s</span></div>
+                    <div class="tl-row"><span class="tl-time">14:23:20</span><span class="tl-level alert">[ ML ]</span><span class="tl-msg">RandomForest: <span class="hl-r">PortScan</span> · confidence <span class="hl-g">0.97</span> · IsoForest score <span class="hl-r">-0.43</span></span></div>
+                    <div class="tl-row"><span class="tl-time">14:23:35</span><span class="tl-level alert">[ ALERT ]</span><span class="tl-msg">ARP SPOOF — IP 192.168.1.1 claimed by <span class="hl-r">aa:bb:cc:11:22:33</span> (was: d4:22:cd:..)</span></div>
+                    <div class="tl-row"><span class="tl-time">14:23:35</span><span class="tl-level detect">[ DB ]</span><span class="tl-msg">Event written — threat_id: <span class="hl-c">NW-0047</span> · stored to <span class="hl-g">netwatch.db</span></span></div>
+                    <div class="tl-row"><span class="tl-time">14:23:36</span><span class="tl-level info">[ SYS ]</span><span class="tl-msg tl-cursor">Monitoring... 1.2k pps · 3 alerts active</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Core code snippet -->
+            <div class="desc-panel" data-aos="fade-up">
+              <div class="panel-hdr">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="term-title">packet_engine.py — snippet</span>
+              </div>
+              <div class="desc-body">
+                <h2>Packet Sniffing Core</h2>
+                <div class="code-block">
+<span class="cmt"># Real-time packet capture and ARP spoof detection</span>
+<span class="kw">from</span> scapy.all <span class="kw">import</span> sniff, ARP, IP, TCP
+
+arp_table = {}  <span class="cmt"># ip → mac mapping</span>
+
+<span class="kw">def</span> <span class="fn">process_packet</span>(pkt):
+    <span class="kw">if</span> ARP <span class="kw">in</span> pkt <span class="kw">and</span> pkt[ARP].op == <span class="num">2</span>:  <span class="cmt"># ARP reply</span>
+        ip, mac = pkt[ARP].psrc, pkt[ARP].hwsrc
+        <span class="kw">if</span> ip <span class="kw">in</span> arp_table <span class="kw">and</span> arp_table[ip] != mac:
+            <span class="fn">alert</span>(<span class="str">f"ARP SPOOF: {ip} claimed by {mac}"</span>)
+        arp_table[ip] = mac
+
+    <span class="kw">if</span> TCP <span class="kw">in</span> pkt <span class="kw">and</span> pkt[TCP].flags == <span class="str">'S'</span>:
+        <span class="fn">track_syn</span>(pkt[IP].src)  <span class="cmt"># feed port scan detector</span>
+
+sniff(iface=<span class="str">"eth0"</span>, prn=process_packet, store=<span class="num">False</span>)
+                </div>
+
+                <h2 style="margin-top:1.5rem;">Tech Stack</h2>
+                <div class="tag-group">
+                  <span class="tag-pill">Python 3</span>
+                  <span class="tag-pill cyan">Scapy</span>
+                  <span class="tag-pill cyan">Flask</span>
+                  <span class="tag-pill cyan">Flask-SocketIO</span>
+                  <span class="tag-pill purple">scikit-learn</span>
+                  <span class="tag-pill purple">Isolation Forest</span>
+                  <span class="tag-pill purple">Random Forest</span>
+                  <span class="tag-pill">Rich</span>
+                  <span class="tag-pill">Tkinter</span>
+                  <span class="tag-pill">NetworkX</span>
+                  <span class="tag-pill cyan">Plotly</span>
+                  <span class="tag-pill">SQLAlchemy</span>
+                  <span class="tag-pill">SQLite</span>
+                  <span class="tag-pill">Nmap</span>
+                  <span class="tag-pill">CIC-IDS2017</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- ── RIGHT: Sidebar ── -->
+          <div class="col-lg-4">
+
+            <!-- Project Info -->
+            <div class="info-panel" data-aos="fade-up" data-aos-delay="100">
+              <div class="panel-hdr">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="term-title">project.info</span>
+              </div>
+              <div class="info-rows">
+                <div class="info-row">
+                  <span class="info-key">Project</span>
+                  <span class="info-val">NetWatch SOC v2</span>
+                </div>
+                <div class="info-row">
+                  <span class="info-key">Category</span>
+                  <span class="info-val">Cybersecurity · AI/ML · Development</span>
+                </div>
+                <div class="info-row">
+                  <span class="info-key">Language</span>
+                  <span class="info-val">Python 3 (100%)</span>
+                </div>
+                <div class="info-row">
+                  <span class="info-key">Interfaces</span>
+                  <span class="info-val">CLI (Rich) · Web (Flask+SocketIO) · Desktop (Tkinter)</span>
+                </div>
+                <div class="info-row">
+                  <span class="info-key">ML Models</span>
+                  <span class="info-val">Isolation Forest · Random Forest<br>Trained on CIC-IDS2017</span>
+                </div>
+                <div class="info-row">
+                  <span class="info-key">Threats Detected</span>
+                  <span class="info-val">ARP Spoof · Port Scan · DDoS · DoS · BruteForce</span>
+                </div>
+                <div class="info-row">
+                  <span class="info-key">Database</span>
+                  <span class="info-val">SQLite via SQLAlchemy</span>
+                </div>
+                <div class="info-row">
+                  <span class="info-key">Status</span>
+                  <span class="info-val"><span class="badge-status">Active Development</span></span>
+                </div>
+                <div class="info-row">
+                  <span class="info-key">GitHub</span>
+                  <span class="info-val">
+                    <a href="#" target="_blank" rel="noopener">
+                      <i class="fa-brands fa-github"></i> y4shsec/netwatch-soc
+                    </a>
+                  </span>
+                </div>
+              </div>
+              <a href="#" target="_blank" rel="noopener" class="btn-cyber" style="margin:1rem;display:flex;justify-content:center;">
+                <i class="fa-brands fa-github"></i>&nbsp; View on GitHub
+              </a>
+              <a href="index.html#portfolio" class="back-btn">
+                <i class="bi bi-arrow-left"></i> Back to Projects
+              </a>
+            </div>
+
+            <!-- Related Projects -->
+            <div class="desc-panel" data-aos="fade-up" data-aos-delay="150" style="margin-top:1.5rem;">
+              <div class="panel-hdr">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="term-title">related_projects.md</span>
+              </div>
+              <div class="desc-body" style="padding:1rem;">
+                <div class="related-grid">
+                  <a href="portfolio-ddos-detection.html" class="related-card">
+                    <div class="related-tag">CYBERSECURITY</div>
+                    <div class="related-title">DDoS Detection Lab</div>
+                  </a>
+                  <a href="portfolio-packet-analyzer.html" class="related-card">
+                    <div class="related-tag">DEVELOPMENT</div>
+                    <div class="related-title">Packet Analyzer</div>
+                  </a>
+                  <a href="portfolio-autopsy.html" class="related-card">
+                    <div class="related-tag">DFIR</div>
+                    <div class="related-title">Autopsy DFIR</div>
+                  </a>
+                  <a href="portfolio-caesar-cipher.html" class="related-card">
+                    <div class="related-tag">CRYPTOGRAPHY</div>
+                    <div class="related-title">Caesar Cipher Toolkit</div>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer" class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">[SENTINEL::SYS]</div>
+      <p class="footer-copy">&copy; 2025 <strong>Yashdeep Sankhla</strong> &mdash; All Rights Reserved</p>
+      <div class="footer-links">
+        <a href="https://github.com/y4shsec" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/yashdeep-sankhla-1a175b2bb/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+</html>

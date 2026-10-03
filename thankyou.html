@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SENTINEL // Message Transmitted ✅</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon_io/favicon-32x32.png">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
+
+  <!-- Page-specific styles for centered thank-you card -->
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .thankyou-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-green);
+      border-radius: 4px;
+      padding: 3rem 2.5rem;
+      max-width: 540px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 50px rgba(0,255,65,0.07);
+    }
+
+    .thankyou-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--neon-green), transparent);
+    }
+
+    .card-dots {
+      display: flex;
+      gap: 0.4rem;
+      margin-bottom: 2rem;
+    }
+
+    .success-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      animation: icon-pulse 2s ease-in-out infinite;
+      display: block;
+    }
+
+    @keyframes icon-pulse {
+      0%,100% { filter: drop-shadow(0 0 8px var(--neon-green)); transform: scale(1); }
+      50%      { filter: drop-shadow(0 0 22px var(--neon-green)); transform: scale(1.05); }
+    }
+
+    .thankyou-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 3px;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+    }
+
+    .thankyou-sub {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 0.3rem;
+    }
+
+    .terminal-block {
+      background: rgba(0,255,65,0.03);
+      border: 1px solid var(--border-green);
+      border-radius: 3px;
+      padding: 1rem 1.2rem;
+      margin: 1.5rem 0;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      text-align: left;
+    }
+
+    .t-row {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .t-row:last-child { margin-bottom: 0; }
+
+    .t-prompt { color: var(--dim-green); }
+    .t-cmd    { color: var(--neon-green); }
+    .t-ok     { color: var(--neon-cyan); }
+    .t-info   { color: var(--text-muted); }
+
+    .btn-return {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 0.5rem;
+      padding: 0.8rem 2rem;
+      border: 1px solid var(--neon-green);
+      color: var(--neon-green);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+      border-radius: 2px;
+    }
+
+    .btn-return::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: var(--neon-green);
+      transform: translateX(-100%);
+      transition: transform 0.25s;
+      z-index: 0;
+    }
+
+    .btn-return:hover::before { transform: translateX(0); }
+    .btn-return:hover { color: #000; }
+    .btn-return span { position: relative; z-index: 1; }
+  </style>
+</head>
+
+<body>
+  <div class="cyber-grid"></div>
+
+  <div class="thankyou-card">
+    <div class="card-dots">
+      <span class="panel-dot pd-r"></span>
+      <span class="panel-dot pd-y"></span>
+      <span class="panel-dot pd-g"></span>
+    </div>
+
+    <span class="success-icon">✅</span>
+
+    <h2 class="thankyou-title">Transmission Complete</h2>
+    <p class="thankyou-sub">Message encrypted and delivered successfully.</p>
+    <p class="thankyou-sub">Yashdeep will respond to your inquiry as soon as possible. 🚀</p>
+
+    <div class="terminal-block">
+      <div class="t-row">
+        <span class="t-prompt">sentinel@sec:~$</span>
+        <span class="t-cmd">send --encrypt --verify --status</span>
+      </div>
+      <div class="t-row">
+        <span class="t-prompt">[  OK  ]</span>
+        <span class="t-ok">Message queued for secure delivery 🔐</span>
+      </div>
+      <div class="t-row">
+        <span class="t-prompt">[  OK  ]</span>
+        <span class="t-info">Delivery confirmation: SUCCESS</span>
+      </div>
+      <div class="t-row">
+        <span class="t-prompt">[INFO ]</span>
+        <span class="t-info">Response ETA: Shortly 📡</span>
+      </div>
+    </div>
+
+    <a href="index.html#contact" class="btn-return">
+      <span>← Return to Base</span>
+    </a>
+  </div>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

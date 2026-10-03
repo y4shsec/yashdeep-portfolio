@@ -23,27 +23,31 @@ module.exports = async function handler(req, res) {
             });
         }
 
+        // Use form-urlencoded (sometimes works better than JSON with Cloudflare)
+        const params = new URLSearchParams();
+        params.append("access_key", key);
+        params.append("name", name);
+        params.append("email", email);
+        params.append("inquiry", inquiry);
+        params.append("message", message);
+        params.append("subject", "New message from Sentinel Portfolio");
+        params.append("from_name", "Sentinel Contact Form");
+
         const response = await fetch("https://api.web3forms.com/submit", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json"
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Accept": "application/json",
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+                "Origin": "https://yashdeep-portfolio-sentinel.vercel.app",
+                "Referer": "https://yashdeep-portfolio-sentinel.vercel.app/"
             },
-            body: JSON.stringify({
-                access_key: key,
-                name,
-                email,
-                inquiry,
-                message,
-                subject: "New message from Sentinel Portfolio",
-                from_name: "Sentinel Contact Form"
-            })
+            body: params.toString()
         });
 
-        // Read as text first so we can see HTML errors
         const text = await response.text();
-        console.log("Web3Forms status:", response.status);
-        console.log("Web3Forms raw reply:", text.slice(0, 300));
+        console.log("Status:", response.status);
+        console.log("Reply preview:", text.slice(0, 200));
 
         let data;
         try {
@@ -51,20 +55,19 @@ module.exports = async function handler(req, res) {
         } catch (e) {
             return res.status(500).json({
                 success: false,
-                message: "Web3Forms returned non-JSON response",
+                message: "Web3Forms returned non-JSON (likely Cloudflare block)",
                 status: response.status,
-                preview: text.slice(0, 200)
+                preview: text.slice(0, 150)
             });
         }
 
         return res.status(response.status).json(data);
 
     } catch (error) {
-        console.error("Full error:", error);
         return res.status(500).json({
             success: false,
             message: "Server error",
-            error: error.message || String(error)
+            error: error.message
         });
     }
 };

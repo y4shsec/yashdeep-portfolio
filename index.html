@@ -645,15 +645,41 @@
             <div class="contact-form-panel">
               <div class="panel-hdr"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span class="term-title">secure_message.form — encrypted</span></div>
               <div class="form-body">
-                <form action="https://api.web3forms.com/submit" method="POST" class="php-email-form">
-                  <input type="hidden" name="access_key" value="639d8962-798d-45e2-b33e-3b9681114219">
-                  <input type="hidden" name="redirect" value="thankyou.html">
+                <form id="contactForm" class="php-email-form">
                   <div class="row gy-3">
-                    <div class="col-md-6"><div class="form-field"><label class="field-label">Your Name</label><input type="text" name="name" placeholder="root@hostname" required></div></div>
-                    <div class="col-md-6"><div class="form-field"><label class="field-label">Your Email</label><input type="email" name="email" placeholder="user@domain.com" required></div></div>
-                    <div class="col-12"><div class="form-field"><label class="field-label">Type of Inquiry</label><select name="inquiry"><option value="">-- SELECT INQUIRY TYPE --</option><option>Penetration Testing</option><option>Bug Bounty</option><option>Security Consulting</option><option>Web Security Audit</option></select></div></div>
-                    <div class="col-12"><div class="form-field"><label class="field-label">Message</label><textarea name="message" rows="6" placeholder="Briefly describe your security concern or objective..." required></textarea></div></div>
-                    <div class="col-12"><button type="submit" class="btn-cyber w-100">&#9658; Send Message</button></div>
+                    <div class="col-md-6">
+                      <div class="form-field">
+                        <label class="field-label">Your Name</label>
+                        <input type="text" name="name" placeholder="root@hostname" required>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-field">
+                        <label class="field-label">Your Email</label>
+                        <input type="email" name="email" placeholder="user@domain.com" required>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="form-field">
+                        <label class="field-label">Type of Inquiry</label>
+                        <select name="inquiry">
+                          <option value="">-- SELECT INQUIRY TYPE --</option>
+                          <option>Penetration Testing</option>
+                          <option>Bug Bounty</option>
+                          <option>Security Consulting</option>
+                          <option>Web Security Audit</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="form-field">
+                        <label class="field-label">Message</label>
+                        <textarea name="message" rows="6" placeholder="Briefly describe your security concern or objective..." required></textarea>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <button type="submit" class="btn-cyber w-100">&#9658; Send Message</button>
+                    </div>
                   </div>
                 </form>
               </div>

@@ -1979,3 +1979,70 @@ textarea:focus-visible,
 .form-field label {
   display: block;
 }
+
+/* ===== Mobile fixes ===== */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+#preloader {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.preloader-inner {
+  max-width: 100%;
+  padding: 0 1rem;
+}
+
+.preloader-logo {
+  font-size: clamp(1.2rem, 6vw, 2.2rem);
+  letter-spacing: 2px;
+  word-break: break-word;
+}
+
+.preloader-msg,
+.preloader-sub {
+  font-size: clamp(0.65rem, 2.8vw, 0.85rem);
+  padding: 0 0.5rem;
+}
+
+/* Prevent horizontal scroll on mobile */
+.header-inner,
+.container,
+.hero-content,
+.profile-card,
+.terminal-box {
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .hero-name {
+    font-size: clamp(1.6rem, 8vw, 2.4rem);
+  }
+
+  .hero-stats {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .stat-box {
+    min-width: 40%;
+  }
+
+  .btn-cyber {
+    width: 100%;
+    max-width: 280px;
+  }
+}

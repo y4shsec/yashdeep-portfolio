@@ -7,8 +7,8 @@
   'use strict';
 
   /* ═══════════════════════════════════════════
-     1. PRELOADER
-  ═══════════════════════════════════════════ */
+   1. PRELOADER
+═══════════════════════════════════════════ */
   var preloader = document.getElementById('preloader');
   if (preloader) {
     var bootMsgs = [
@@ -25,18 +25,40 @@
       mi++;
       if (msgEl && mi < bootMsgs.length) msgEl.textContent = bootMsgs[mi];
       if (mi >= bootMsgs.length - 1) clearInterval(bootInterval);
-    }, 450);
+    }, 900); // slower message change
 
     function hidePreloader() {
-      preloader.style.transition = 'opacity 0.5s ease';
+      preloader.style.transition = 'opacity 0.6s ease';
       preloader.style.opacity = '0';
-      setTimeout(function () { preloader.style.display = 'none'; }, 600);
+      setTimeout(function () {
+        preloader.style.display = 'none';
+      }, 700);
     }
-    // Hard timeout — never stays stuck
-    setTimeout(hidePreloader, 3000);
-    window.addEventListener('load', function () { setTimeout(hidePreloader, 200); });
-  }
 
+    // Minimum time the preloader stays visible (5.5 seconds)
+    var minTime = 5500;
+    var start = Date.now();
+
+    function tryHide() {
+      var elapsed = Date.now() - start;
+      var remaining = minTime - elapsed;
+      if (remaining > 0) {
+        setTimeout(hidePreloader, remaining);
+      } else {
+        hidePreloader();
+      }
+    }
+
+    // Wait for page load, but still respect minimum time
+    if (document.readyState === 'complete') {
+      tryHide();
+    } else {
+      window.addEventListener('load', tryHide);
+    }
+
+    // Safety: never stay longer than 10 seconds
+    setTimeout(hidePreloader, 10000);
+  }
   /* ═══════════════════════════════════════════
      2. MATRIX RAIN
   ═══════════════════════════════════════════ */

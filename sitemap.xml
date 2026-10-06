@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://yashdeep-portfolio-sentinel.vercel.app/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://yashdeep-portfolio-sentinel.vercel.app/portfolio-netwatch.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yashdeep-portfolio-sentinel.vercel.app/portfolio-autopsy.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yashdeep-portfolio-sentinel.vercel.app/portfolio-ddos-detection.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yashdeep-portfolio-sentinel.vercel.app/portfolio-metasploitable.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yashdeep-portfolio-sentinel.vercel.app/portfolio-caesar-cipher.html</loc>
+    <priority>0.7</priority>
+  </url>
+</urlset>

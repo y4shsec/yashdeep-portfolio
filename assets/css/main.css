@@ -2046,3 +2046,72 @@ body {
     max-width: 280px;
   }
 }
+
+/* ===== Mobile Hero Stats Fix ===== */
+@media (max-width: 768px) {
+  /* Hero section overall */
+  .hero-content {
+    padding: 1.5rem 1rem !important;
+    text-align: center;
+  }
+
+  .hero-name {
+    font-size: clamp(1.8rem, 9vw, 2.4rem) !important;
+    line-height: 1.15;
+  }
+
+  .hero-typed,
+  .hero-location {
+    font-size: 0.8rem;
+  }
+
+  /* Stats → force 2×2 grid */
+  .hero-stats {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1rem 0.75rem !important;
+    justify-items: center;
+    align-items: center;
+    margin: 1.5rem auto !important;
+    max-width: 280px;
+  }
+
+  .stat-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 0 !important;
+    width: 100%;
+  }
+
+  .stat-box .stat-num {
+    font-size: 1.5rem !important;
+  }
+
+  .stat-box .stat-label {
+    font-size: 0.65rem !important;
+    letter-spacing: 0.5px;
+  }
+
+  /* Hide the "//" separators on mobile (they break the grid) */
+  .hero-stats .stat-sep,
+  .hero-stats .sep,
+  .hero-stats > span:not(.stat-box) {
+    display: none !important;
+  }
+
+  /* Buttons */
+  .hero-btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .hero-btns .btn-cyber {
+    width: 100%;
+    max-width: 260px;
+  }
+}

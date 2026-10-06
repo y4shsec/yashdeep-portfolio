@@ -2527,3 +2527,80 @@ svg {
     display: block !important;
   }
 }
+
+/* ═══════════════════════════════════════════
+   MOBILE HERO STATS — exact fix
+═══════════════════════════════════════════ */
+@media (max-width: 768px) {
+  .hero-stats {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1.2rem 1rem !important;
+    justify-items: center !important;
+    align-items: center !important;
+    max-width: 280px !important;
+    margin: 1.5rem auto !important;
+    width: 100% !important;
+  }
+
+  /* Hide all // dividers on mobile */
+  .hero-stats .stat-divider {
+    display: none !important;
+  }
+
+  .hero-stats .stat-box {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  .hero-stats .stat-val {
+    font-size: 1.55rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .hero-stats .stat-val small {
+    font-size: 0.7em !important;
+  }
+
+  .hero-stats .stat-key {
+    font-size: 0.62rem !important;
+    letter-spacing: 0.5px !important;
+    margin-top: 0.2rem !important;
+    opacity: 0.85;
+  }
+
+  /* Buttons under stats */
+  .hero-btns {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    width: 100% !important;
+    margin-top: 0.5rem !important;
+  }
+
+  .hero-btns .btn-cyber {
+    width: 100% !important;
+    max-width: 260px !important;
+    text-align: center !important;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 400px) {
+  .hero-stats {
+    max-width: 240px !important;
+    gap: 1rem 0.7rem !important;
+  }
+
+  .hero-stats .stat-val {
+    font-size: 1.35rem !important;
+  }
+
+  .hero-stats .stat-key {
+    font-size: 0.58rem !important;
+  }
+}

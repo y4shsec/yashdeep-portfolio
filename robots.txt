@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yashdeep-portfolio-sentinel.vercel.app/sitemap.xml

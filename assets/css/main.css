@@ -2471,3 +2471,59 @@ svg {
     max-width: 360px;
   }
 }
+
+/* ===== FORCE 2×2 STATS ON MOBILE ===== */
+@media (max-width: 768px) {
+  /* Try common parent names */
+  .hero-stats,
+  .stats-row,
+  .hero-counters,
+  .stat-container,
+  .counters,
+  .hero-meta {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1.1rem 0.8rem !important;
+    justify-items: center !important;
+    align-items: center !important;
+    max-width: 270px !important;
+    margin: 1.4rem auto !important;
+    width: 100% !important;
+  }
+
+  /* Each stat item */
+  .hero-stats > *,
+  .stats-row > *,
+  .hero-counters > *,
+  .stat-container > *,
+  .counters > * {
+    text-align: center !important;
+  }
+
+  /* Hide the // separators */
+  .hero-stats .sep,
+  .hero-stats .stat-sep,
+  .stats-row .sep,
+  .hero-stats > span,
+  .stats-row > span,
+  .hero-counters > span {
+    display: none !important;
+  }
+
+  /* Numbers */
+  .stat-num,
+  .counter-num,
+  .stat-box span:first-child,
+  .stat strong {
+    font-size: 1.5rem !important;
+    display: block !important;
+  }
+
+  /* Labels */
+  .stat-label,
+  .counter-label,
+  .stat-box span:last-child {
+    font-size: 0.62rem !important;
+    display: block !important;
+  }
+}

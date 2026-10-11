@@ -2838,3 +2838,52 @@ a:hover,
     height: 210px !important;
   }
 }
+
+/* ═══════════════════════════════════════════
+   FIX WHITE SPACE AROUND PROFILE PHOTO
+═══════════════════════════════════════════ */
+
+/* Kill white background on the photo frame */
+.identity-profile,
+.identity-profile .img-wrap,
+.identity-profile .photo-wrap,
+.identity-profile .profile-img,
+.profile-card .img-box,
+.about-photo,
+.identity-card .photo {
+  background: #0a0e14 !important;
+  background-color: #0a0e14 !important;
+}
+
+/* Image itself — fill the frame, no white gap */
+.identity-profile img,
+.profile-card img,
+.about-photo img,
+.identity-card img {
+  width: 100% !important;
+  max-width: 240px !important;
+  height: auto !important;
+  aspect-ratio: 3 / 4 !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  display: block !important;
+  margin: 0 auto !important;
+  background: #0a0e14 !important;
+  border-radius: 4px !important;
+  border: 1px solid rgba(0, 255, 120, 0.3) !important;
+}
+
+/* Parent box that still shows white */
+.identity-profile > div:first-child,
+.identity-profile .card-body,
+.identity-profile .window-body,
+.profile-card .window-body {
+  background: #0a0e14 !important;
+  background-color: #0a0e14 !important;
+}
+
+/* Extra safety — any pure white left in about left column */
+.about-grid > div:first-child,
+.about-wrapper > div:first-child {
+  background-color: transparent !important;
+}

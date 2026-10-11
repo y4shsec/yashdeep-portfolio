@@ -2604,3 +2604,137 @@ svg {
     font-size: 0.58rem !important;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   GLOBAL CONTRAST / READABILITY UPGRADE
+═══════════════════════════════════════════════════════════ */
+
+/* Main readable text — brighter green */
+body,
+p,
+.about-text,
+.bio-panel,
+.terminal-box,
+.terminal-box p,
+.terminal-content,
+.edu-item p,
+.exp-item p,
+.exp-item li,
+.timeline-item p,
+.project-card p,
+.cert-card p,
+.achievement-card p {
+  color: #b8f5c8 !important; /* brighter mint-green */
+}
+
+/* Strong headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+.section-title,
+.section-heading,
+.hero-name,
+.stat-val,
+.edu-item h3,
+.exp-item h3,
+.project-card h3,
+.cert-card h3 {
+  color: #e8ffe8 !important; /* near-white green */
+}
+
+/* Labels / keys / secondary text */
+.stat-key,
+.field-label,
+.hero-location,
+.hero-tagline,
+.hero-typed,
+.small-label,
+.meta-text,
+.edu-item .date,
+.exp-item .date,
+.form-field label {
+  color: #7dffb0 !important; /* clear neon green */
+}
+
+/* Links */
+a,
+.proj-link,
+.nav-link,
+.mob-link {
+  color: #5cff9d !important;
+}
+
+a:hover,
+.proj-link:hover {
+  color: #b8ffd0 !important;
+}
+
+/* Terminal prompt style text */
+.terminal-box,
+.terminal-box code,
+.terminal-box pre,
+.about-terminal,
+.bash-line {
+  color: #c8ffd8 !important;
+}
+
+/* Contact info panel text */
+.contact-info,
+.contact-info span,
+.contact-info a,
+.contact-info p {
+  color: #c0ffd0 !important;
+}
+
+/* Form inputs — brighter placeholder + text */
+.form-field input,
+.form-field select,
+.form-field textarea {
+  color: #e0ffe8 !important;
+  border-color: #2a6b45 !important;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: #6a9a78 !important;
+  opacity: 1;
+}
+
+/* Buttons text */
+.btn-cyber {
+  color: #e8ffe8 !important;
+}
+
+.btn-outline,
+.btn-ghost {
+  color: #7dffb0 !important;
+}
+
+/* Skill bars labels */
+.skills-panel span,
+.diagnostics-skills span,
+.skill-name {
+  color: #c8ffd8 !important;
+}
+
+/* Divider / muted text still readable */
+.stat-divider,
+.sep,
+.muted,
+.text-muted {
+  color: #4a8a5a !important;
+}
+
+/* Cards borders slightly brighter so they don’t disappear */
+.profile-card,
+.edu-item,
+.exp-item,
+.project-card,
+.cert-card,
+.terminal-box,
+.contact-info,
+.contact-form-box {
+  border-color: rgba(0, 255, 100, 0.25) !important;
+}

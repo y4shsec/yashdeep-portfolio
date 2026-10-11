@@ -2738,3 +2738,72 @@ a:hover,
 .contact-form-box {
   border-color: rgba(0, 255, 100, 0.25) !important;
 }
+
+/* ═══════════════════════════════════════════
+   ABOUT SECTION + PHOTO POLISH
+═══════════════════════════════════════════ */
+
+/* Profile photo — fit the cyber theme */
+.identity-profile img,
+.profile-card img,
+.about-photo img,
+.identity-card img {
+  border: 1px solid rgba(0, 255, 120, 0.4) !important;
+  box-shadow: 0 0 24px rgba(0, 255, 100, 0.15) !important;
+  background: #0a120e !important;
+  object-fit: cover !important;
+  border-radius: 4px;
+}
+
+/* About terminal text — clearer contrast */
+.terminal-box p,
+.terminal-body p,
+.term-output p,
+.about-text p {
+  color: #c8ffd4 !important;
+  line-height: 1.65 !important;
+  margin-bottom: 1rem !important;
+  font-size: 0.92rem !important;
+}
+
+/* Prompt line */
+.term-line .prompt,
+.terminal-box .prompt {
+  color: #5cff9d !important;
+}
+
+/* Identity panel labels */
+.identity-profile .label,
+.profile-card .label,
+.identity-card span:first-child {
+  color: #6a9a78 !important;
+  font-size: 0.72rem !important;
+  letter-spacing: 0.6px;
+}
+
+/* Identity panel values */
+.identity-profile .value,
+.profile-card .value,
+.identity-card span:last-child,
+.identity-card a {
+  color: #e8ffe8 !important;
+}
+
+/* Alias highlight */
+.identity-profile .alias,
+.profile-card .alias {
+  color: #5cff9d !important;
+  font-weight: 600;
+}
+
+/* Spacing between about panels */
+.about-grid,
+.about-wrapper {
+  gap: 1.5rem !important;
+}
+
+/* Skills block under about — less cramped */
+.diagnostics-skills,
+.skills-panel {
+  margin-top: 1.25rem !important;
+}

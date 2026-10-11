@@ -891,18 +891,17 @@ section {
   box-shadow: 0 0 30px rgba(0, 255, 65, 0.06);
 }
 
-/* ── Image: top, full width, medium height ── */
+/* ── Image: top, full width, medium height ──
 .profile-img-wrap {
   position: relative;
   overflow: hidden;
   width: 100%;
   /* padding-top = height/width * 100 = 654/571 * 100 = 114.5% */
-  padding-top: 85%;
+/* padding-top: 85%;
   flex-shrink: 0;
   background: #fff;
-}
-
-.profile-img {
+/* } */
+*/ */ .profile-img {
   position: absolute;
   top: 0;
   left: 0;
@@ -2886,4 +2885,33 @@ a:hover,
 .about-grid > div:first-child,
 .about-wrapper > div:first-child {
   background-color: transparent !important;
+}
+
+/* ═══════════════════════════════════════════
+   FIX profile-img-wrap WHITE SPACE
+═══════════════════════════════════════════ */
+
+.profile-img-wrap {
+  background: #0a0e14 !important;
+  background-color: #0a0e14 !important;
+  width: 100% !important;
+  max-width: 240px !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border-radius: 4px !important;
+  border: 1px solid rgba(0, 255, 120, 0.3) !important;
+}
+
+.profile-img-wrap img {
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 3 / 4 !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  display: block !important;
+  margin: 0 !important;
+  background: #0a0e14 !important;
+  border: none !important;
+  border-radius: 0 !important;
 }
